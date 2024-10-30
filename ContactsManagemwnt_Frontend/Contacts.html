@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacts Management</title>
+    <link rel="stylesheet" href="Contacts.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Contacts Management</h1>
+
+    <div id="error-message"></div>
+
+    <div id="contact-form">
+        <h2 id="form-title">Add Contact</h2>
+        <form onsubmit="saveContact(event)">
+            <input type="hidden" id="contact-id">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required>
+            <label for="phone">Phone:</label>
+            <input type="text" id="phone" required pattern="\d{11}" title="Please enter an 11-digit phone number">
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+            <button type="submit">Save</button>
+            <button type="button" onclick="closeForm()">Cancel</button>
+        </form>
+    </div>
+
+    <table id="contacts-table">
+        <thead>
+            <tr>
+                <th style="text-align: center;">Name</th>
+                <th style="text-align: center;">Phone</th>
+                <th style="text-align: center;">Email</th>
+                <th style="text-align: center;">Edit</th>
+                <th style="text-align: center;">Delete</th>
+            </tr>
+        </thead>
+        <tbody id="contacts-list">
+        </tbody>
+    </table>
+
+    <button onclick="showAddContactForm()">Add New Contact</button>
+
+    <div id="contact-details" style="display: none;">
+        <h2>Contact Details</h2>
+        <p><strong>Name:</strong> <span id="detail-name"></span></p>
+        <p><strong>Phone:</strong> <span id="detail-phone"></span></p>
+        <p><strong>Email:</strong> <span id="detail-email"></span></p>
+        <button onclick="closeDetails()">Close</button>
+    </div>
+</div>
+
+<script src="Contacts.js"></script>
+</body>
+</html>
